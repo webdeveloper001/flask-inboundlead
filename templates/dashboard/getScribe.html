@@ -1,0 +1,105 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Scribe Form Code{% endblock %}
+{% block content %}
+<link href="static/dashboardAssets/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" />
+<div class="container">
+    <form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <!--<div class="form-group">
+            <label for="formTitle">Form Title</label>
+            <input type="text" class="form-control"  id="formTitle" name="formTitle"  value="Request Demo" />
+        </div>-->
+        <div class="form-group">
+            <label for="selectize_input">Which of the fields do you compulsory need to qualify a lead?</label>
+            <input type="text" name="compulsoryFields" id="selectize_input" class="selectized items" value="{{ compulsoryFields }}" >
+        </div>
+        <div class="form-group"><input type="submit" value="submit" class="btn btn-default"></div>
+
+    <br>
+    </form>
+    <div class="row" style="width:100%; min-height:60px; border-radius:4px 0 4px 0; background-color:#fff; border:1px solid #ddd; padding:9px 19px 14px">
+        <h4> Place this code in your webpage to get Scribe request demo button</h4>
+        <textarea id="bar" style="width:100%; margin:auto; height:60px;">{{ code }}</textarea>
+        <br>
+        <button class="btn" data-clipboard-action="copy" data-clipboard-target="#bar" style="background-image: linear-gradient(#fcfcfc,#eee); background-color:#58BAAA; border:1px solid #d5d5d5">
+            Copy to clipboard
+        </button>
+    </div>
+    <!--
+    <div class="row" style="display:inline-block; vertical-align:middle;">
+        <div class="form-group" style="vertical-align:middle; width:30%;display: inline-block; padding-right:3%;">
+            <label for="cp2">Form Title</label>
+            <input type="text" class="form-control"  id="text1" name="text1"  value="Request Demo" />
+        </div>
+
+        <div class="form-group" style="vertical-align:middle; width:30%;display: inline-block; padding-right:3%;">
+            <label for="cp2">Choose Button Color</label>
+            <div id="cp2" class="input-group colorpicker-component">
+                  <input type="text" value="#00AABB" class="form-control"/>
+                  <span class="input-group-addon" style="background-color:#ddd"><i></i></span>
+              </div>
+              <script>
+                  $(function () {
+                      $('#cp2').colorpicker();
+                  });
+              </script>
+        </div>
+
+        <div class="form-group" style="vertical-align:middle; width:30%; display: inline-block; padding-right:3%;">
+            <label> Your test button</label>
+            <button type="button" name="button1" class="btn col-sm-12 col-xs-12" style="background-color:#00AABB">Request Demo</button>
+        </div>
+    </div>-->
+</div>
+<script src="static/dashboardAssets/js/bootstrap-colorpicker.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $("#text1").keydown(function(){
+		var text1 = $("#text1").val();
+		$("#button1").html(text1);
+		if(text1=="")
+		{
+			$("#button1").html("Click");
+		}
+    });
+
+	$("#button1").click(function(){
+		$("#test_code").show();
+	});
+
+	$("#copyButton").click(function(){
+		$("#iframe1").show();
+	});
+
+	$("#scribeFrame").click(function(){
+		$("#model_id").trigger("click");
+	});
+
+});
+</script>
+<script>
+		$("#selectize_input").selectize({options: [
+        {id: 1, selectize_input: 'name'},
+        {id: 2, selectize_input: 'email'},
+        {id: 3, selectize_input: 'company'},
+        {id: 4, selectize_input: 'company size'},
+        {id: 5, selectize_input: 'age'},
+        {id: 6, selectize_input: 'experience'},
+        {id: 7, selectize_input: 'department'},
+        {id: 8, selectize_input: 'revenue'},
+        {id: 9, selectize_input: 'phone'},
+        {id: 10, selectize_input: 'location'},
+        {id: 11, selectize_input: 'industry'},],
+        singleOverride: true,
+        plugins:['remove_button'],
+        labelField: 'selectize_input',
+        valueField: 'selectize_input',
+        searchField: ['selectize_input'],
+        openOnFocus: true,
+        persist: true,
+        createOnBlur: true,
+        create: true
+    });
+</script>
+{% endblock %}

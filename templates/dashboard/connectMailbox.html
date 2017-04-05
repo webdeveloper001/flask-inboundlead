@@ -1,0 +1,22 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+<h4 style="text-align:left">
+
+    {% if not monitorEmail %}
+        <div class="form-group m-b-0 text-center">
+            <div class="col-sm-12">
+                <a href="{{ url_for('authorization.oauth2callback',scopeType='gmail') }}" class="btn btn-googleplus  btn-lg waves-effect waves-light m-t-20">
+                   <i class="fa fa-google-plus m-r-5"></i> Provide gmail access to Scribe
+                </a>
+            </div>
+        </div>
+        <div style="text-align:center; padding-top:120px;">
+            <p>Note: Email support is only available for premium buyers</p>
+        </div>
+    {% elif monitorEmail %}
+        <p>We have integrated with your gmail account. One of our representatives will reach out to you to discuss the pricing plan soon</p>
+    {% endif %}
+</div>
+{% endblock %}

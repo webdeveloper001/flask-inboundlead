@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- ========== VIEWPORT META ========== -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <!-- ========== PAGE TITLE ========== -->
+        <title>Scribe! Instant lead qualification and scheduling</title>
+
+        <!-- ========== META TAGS ========== -->
+        <meta name="description" content="Scribe! - Get more qualified leads delivered to inbox">
+        <meta name="keywords" content="software, lead qualification">
+        <meta name="author" content="">
+
+        <!-- ========== FAVICON & APPLE ICONS ========== -->
+        <link rel="shortcut icon" href="static/img/scribeLogo/favicon.png">
+        <link rel="apple-touch-icon" href="static/indexAssets/images/apple-touch-icon.png">
+
+        <!-- ========== MINIFIED VENDOR CSS ========== -->
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/Yamm3/yamm/yamm.css">
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/animate.css/animate.css">
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/animsition/dist/css/animsition.min.css">
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/Ionicons/css/ionicons.css">
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="static/indexAssets/styles/owl/owl.carousel.css">
+        <link rel="stylesheet" href="static/indexAssets/styles/owl/owl.theme.default.css">
+        <link rel="stylesheet" href="static/indexAssets/Source-Files/bower_components/Swiper/dist/css/swiper.min.css">
+        <link rel="stylesheet" href="static/indexAssets/styles/main.css">
+        <link rel="stylesheet" href="static/indexAssets/styles/style.css">
+        <!-- ========== MODERNIZR ========== -->
+    	<script src="static/indexAssets/scripts/vendor/modernizr.js"></script>
+    </head>
+
+    <!-- ========== BODY ==========
+    .light-header: for light colored header
+    .dark-header: for dark colored header
+    ==========  ========== -->
+    <body class="light-header animsition">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-dismissible alert-warning fade in">
+                  <a class="close" data-dismiss="alert">&times;</a>
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        <!-- ========== NAVIGATION ========== -->
+    	<nav class="navbar yamm navbar-fixed-top" style="z-index:1" role="navigation">
+    		<div class="container-fluid">
+    			<div class="navbar-header">
+    				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    					<span class="sr-only">Toggle navigation</span>
+    					<span class="icon-bar"></span>
+    					<span class="icon-bar"></span>
+    					<span class="icon-bar"></span>
+    				</button> <!-- end navbar-toggle -->
+    				<a class="navbar-brand" href="{{ url_for('index') }}">
+    					<img src="static/img/scribeLogo/smallSize_dark.png" alt=" Logo" class="light-logo">
+    					<img src="static/img/scribeLogo/smallSize_dark.png" alt=" Logo" class="dark-logo">
+    				</a> <!-- end navbar-brand -->
+    			</div> <!-- end navbar-header -->
+
+    			<div id="navbar" class="navbar-collapse collapse">
+    				<ul class="nav navbar-nav pull-right">
+
+   					    <!-- end dropdown (features) -->
+    					<li class="">
+    						<a href="{{ url_for('integrations') }}" class="" >Integrations </a>
+    					</li>
+                        <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
+
+   					    <!-- end dropdown.dd-left (pages) -->
+                        <!-- end dropdown (blog) -->
+    					<li class="nav-btn-wrap">
+
+                            <span class="nav-btn"><a href="#" onclick="scribe.openCalendar()" class="btn show-popup se-btn-black btn-rounded">Live Demo</a></span>
+                        </li>
+    				</ul> <!-- end navbar-nav -->
+
+    			</div> <!--end nav-collapse -->
+    		</div> <!-- end container -->
+    	</nav>
+        <main id="content" role="main">
+          {% block content %}{% endblock %}
+        </main>
+        <!-- ========== CTA SECTION ========== -->
+        <section class="se-section primary-bg">
+            <div class="container">
+                <div class="row text-center">
+                  <h3>Wake up to find calls with qualified leads already booked on your calendar.</h3>
+                  <p>20 Free Qualified Demos Booked Every Month</p>
+                  <a href="#" onclick="scribe.openCalendar()" class="btn show-popup se-btn-black btn-rounded">Live Demo</a>
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="light-footer" style="margin-top:20px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-6">
+                       <!-- <img src="static/img/scribeLogo/smallSize_dark.png" alt="" class="footer-logo">-->
+                    </div>
+
+                    <div class="col-md-2 col-sm-3 col-xs-6">
+                        <h6 class="mtn">CONTACT</h6>
+                        <ul>
+                            <li style="font-size: 13px">hi@tryscribe.com</li>
+                            <li style="font-size: 13px">+1 415 746 9935</li>
+                            <li style="font-size: 13px">San Francisco, CA</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3 col-xs-6">
+                        <h6 class="mtn">PAGES</h6>
+                        <ul>
+                            <li><a href="{{ url_for('login') }}">Login</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3 col-xs-6">
+                        <h6 class="mtn">OTHER</h6>
+                        <ul>
+                            <li><a href="{{ url_for('privacyPolicy') }}">Privacy Policy</a></li>
+                            <li><a href="{{ url_for('tos') }}">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 col-sm-8 col-sm-offset-2 col-md-offset-0">
+                        <h6 class="mtn">SUBSCRIBE</h6>
+                        <div class="input-group">
+                            <form method="post" id="subscribeForm">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                <input type="email" class="form-control inp-rounded" name="email" style="width:200px" placeholder="Work Email">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn se-btn btn-rounded" value="Subscribe" style="padding:0px 15px"/>
+                                </span> <!-- end input-group-btn -->
+                            </form>
+                        </div><!-- end input-group -->
+                        <p class="text-center text-muted">We don't spam!</p>
+                    </div>
+                </div> <!-- end row -->
+
+                <div class="row footer-bottom">
+                    <div class="col-md-6">
+                      <p>Copyright &copy; Scribe Technologies. 2017. All Rights Reserved.</p>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                        <!--<h6><a href="#">TWITTER</a></h6>
+                        <h6><a href="#">LINKEDIN</a></h6>-->
+                    </div>
+                </div> <!-- end footer-bottom -->
+            </div> <!-- end container -->
+        </footer>
+
+        <script src="static/indexAssets/Source-Files/bower_components/jquery/dist/jquery.js"></script>
+    	<script src="static/indexAssets/Source-Files/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/animsition/dist/js/animsition.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/matchHeight/jquery.matchHeight-min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/parallax.js/parallax.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/particles.js/particles.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/scrollreveal/dist/scrollreveal.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/textillate/assets/jquery.lettering.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/textillate/jquery.textillate.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/owl/owl.carousel.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+        <script src="static/indexAssets/Source-Files/bower_components/Swiper/dist/js/swiper.jquery.min.js"></script>
+
+    	<script src="static/indexAssets/scripts/main.js"></script>
+        <script data-uid="{{ config['DEFAULT_SALESREP_ID'] }}" data-url="{{ config['BASE_URL'] }}" data-opentype="true" type="text/javascript" src="{{ config['BASE_URL'] }}/static/client/dist/clientEmbedCode.bundle.js"></script>
+    </body>
+{% include 'layouts/tracker.html' %}
+</html>

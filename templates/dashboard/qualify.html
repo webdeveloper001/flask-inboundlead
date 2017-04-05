@@ -1,0 +1,162 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Smart Form{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row"></div>
+    <form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    		<p>If you only have a prospect's Email ID, which of the following values is a must for you call them?*</p>
+			<input type="text" name="location" id="question1" class="selectized"   > <br>
+			<p>If you only have a prospect's Location, which of the following values is a must for you call them?*</p>
+			<input type="text" name="title" id="question2" class="selectized"   > <br>
+			<p>If you only have a prospect's Title, which of the following values is a must for you call them?*</p>
+			<input type="text" name="department" id="question3" class=" selectized" ><br>
+			<p>If you only have a prospect's Department, which of the following values is a must for you call them?*</p>
+			<input type="text" name="companySize" id="question4" class="selectized" ><br>
+			<p>If you only have a prospect's Company Size, which of the following values is a must for you call them?*</p>
+			<input type="text" name="revenue" id="question5" class="selectized" ><br>
+			<p>If you only have a prospect's Company Revenue, which of the following values is a must for you call them?*</p>
+				<script>
+				$("#selectize_input").selectize({options: [
+        {id: 1, selectize_input: 'Name'},
+        {id: 2, selectize_input: 'Email'},
+        {id: 3, selectize_input: 'Company'},
+        {id: 4, selectize_input: 'Company Size'},
+        {id: 5, selectize_input: 'Age'},
+        {id: 6, selectize_input: 'Experience'},
+        {id: 7, selectize_input: 'Department'},
+        {id: 8, selectize_input: 'Revenue'},
+        {id: 9, selectize_input: 'Phone'},
+        {id: 10, selectize_input: 'Location'},
+        {id: 11, selectize_input: 'Industry'},],
+        singleOverride: true,
+        plugins:['remove_button'],
+        labelField: 'selectize_input',
+        valueField: 'selectize_input',
+        searchField: ['selectize_input'],
+        openOnFocus: true,
+        persist: false,
+        createOnBlur: true,
+        create: true
+    });
+
+				$("#question3").selectize({options: [
+
+                        {id: 1, selectize_input: 'Founder'},
+                        {id: 2, selectize_input: 'Partner'},
+						{id: 3, selectize_input: 'Director'},
+						{id: 4, selectize_input: 'Entry'},
+						{id: 5, selectize_input: 'Assistant'},
+						{id: 6, selectize_input: 'Student'},
+						{id: 7, selectize_input: 'Individual'},
+						{id: 8, selectize_input: 'Owner'},
+						{id: 9, selectize_input: 'VP'},
+						{id: 10, selectize_input: 'Manager'},
+                        {id: 11, selectize_input: 'Intern'},],
+
+                        singleOverride: true,
+						plugins:['remove_button'],
+						labelField: 'selectize_input',
+						valueField: 'selectize_input',
+						searchField: ['selectize_input'],
+						openOnFocus: true
+				});
+
+				$("#question1").selectize({options: [
+
+                        {id: 1, question1: 'Work Email'},
+                        {id: 11, question1: 'Personal Email'},],
+
+                        singleOverride: true,
+						plugins:['remove_button'],
+						labelField: 'question1',
+						valueField: 'question1',
+						searchField: ['question1'],
+						openOnFocus: true
+
+				});
+
+				$("#question2").selectize({options: [
+
+                        {id: 1, question2: 'San Francisco Bay Area'},
+						{id: 1, question2: 'Europe'},
+						{id: 1, question2: 'USA'},
+						{id: 1, question2: 'Other International'},
+                        {id: 11, question2: 'Other'},],
+
+                        singleOverride: true,
+						plugins:['remove_button'],
+						labelField: 'question2',
+						valueField: 'question2',
+						searchField: ['question2'],
+						openOnFocus: true
+				});
+
+				$("#question4").selectize({options: [
+
+                        {id: 1, question4: 'Product Management'},
+						{id: 1, question4: 'Design'},
+						{id: 1, question4: 'Marketing'},
+						{id: 1, question4: 'Founder/CEO'},
+						{id: 1, question4: 'IT'},
+						{id: 1, question4: 'Engineering'},
+						{id: 1, question4: 'Sales'},
+						{id: 1, question4: 'Customer Support'},
+						{id: 1, question4: 'Finance'},
+						{id: 1, question4: 'Legal'},
+                        {id: 11, question4: 'Other'},],
+
+                        singleOverride: true,
+						plugins:['remove_button'],
+						labelField: 'question4',
+						valueField: 'question4',
+						searchField: ['question4'],
+						openOnFocus: true
+				});
+
+				$("#question5").selectize({options: [
+
+                        {id: 1, question5: '1-10'},
+						{id: 1, question5: '11-50'},
+						{id: 1, question5: '51-200'},
+						{id: 1, question5: '201-500'},
+						{id: 1, question5: '501-1000'},
+						{id: 1, question5: '1001-5000'},
+						{id: 1, question5: '5001-10000'},
+						{id: 1, question5: '10000+'},],
+
+                        singleOverride: true,
+						plugins:['remove_button'],
+						labelField: 'question5',
+						valueField: 'question5',
+						searchField: ['question5'],
+						openOnFocus: true
+				});
+
+				$("#question6").selectize({options: [
+
+                        {id: 1, question6: '<$500K'},
+						{id: 1, question6: '$500K-1M'},
+						{id: 1, question6: '$1-2.5M'},
+						{id: 1, question6: '$2.5-5M'},
+						{id: 1, question6: '$5-10M'},
+						{id: 1, question6: '$10-20M'},
+						{id: 1, question6: '$20-50M'},
+						{id: 1, question6: '$50-100M'},
+						{id: 1, question6: '$100-500M'},
+						{id: 1, question6: '$500-1B'},
+						{id: 1, question6: '>$1B'},],
+
+                        singleOverride: true,
+						plugins:['remove_button'],
+						labelField: 'question6',
+						valueField: 'question6',
+						searchField: ['question6'],
+						openOnFocus: true
+				});
+				</script>
+        <br>
+    <input type="submit" value="submit" class="btn btn-default btn-lg btn-block" />
+    </form>
+</div>
+{% endblock %}

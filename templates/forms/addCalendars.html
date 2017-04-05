@@ -1,0 +1,37 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Scribe! Your friendly virtual AI Assistant{% endblock %}
+{% block content %}
+<link href="/static/css/bootstrapCheckbox.css" rel="stylesheet" type="text/css" />
+<form method="post" class="form-horizontal">
+    <fieldset>
+        <h3 style="text-align:center"> Let your assistant know what hours, call duration and calendar you would prefer</h3>
+        <br>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <div class="form-group" style="padding-left:0px; margin:auto; width:90%;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Start of working day</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="time" name="dayStartTime" style="width:100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>End of working day</label>&nbsp;&nbsp;<input type="time" name="dayEndTime" style="width:100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Call Duration (mins)</label><input type="number" name="callDuration" style="width:100px">
+        </div>
+        <br>
+        <br>
+        <p style="width:50%; margin:auto">
+            Choose calendars to connect with your assistant
+            <br>
+            <br>
+            <ul class="list-group">
+        {% for id,calendar in calendarList.items() %}
+                <li class="list-group-item">{{ calendar }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="material-switch pull-right">
+                        <input id="{{ calendar }}" name="calendarIds" value="{{ id }}" type="checkbox"/>
+                        <label for="{{ calendar }}" class="label-success"></label>
+                    </div>
+        {% endfor %}
+            </ul>
+        </p>
+        <br>
+        <br>
+        <input type="submit" value="Connect Calendars" class="btn btn-danger btn-lg btn-block" />
+    </fieldset>
+</form>
+{% endblock %}

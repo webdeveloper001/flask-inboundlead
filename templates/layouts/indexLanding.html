@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'layouts/header.html' %}
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+<div id="wrapper">
+	<nav class="navbar navbar-custom navbar-fixed-top" >
+	    <div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					☰
+				</button>
+				<ul class="nav navbar-brand">
+					<li><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='ico/scribeFavicon.png') }}" class="siteLogo"><Strong class="siteTitle">Scribe</Strong></a></li>
+				</ul>
+			</div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="#intro">Home</a></li>
+                <li><a href="#howItWorks">How it works!</a></li>
+                <li><a href="#integrations">Integrations</a></li>
+				<li><a href="#contact">Contact us</a></li>
+				<li><a href="{{ url_for('apply') }}">Apply</a></li>
+				<li><a href="{{ url_for('login') }}">Login</a></li>
+				<!--<li><a href="/login">Login</a></li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+</div>
+<!-- Begin page content -->
+<main id="content" role="main">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-block alert-error fade in">
+          <a class="close" data-dismiss="alert">&times;</a>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+</main>
+<footer>
+    <div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-6 col-lg-6">
+					<div class="wow fadeInLeft" data-wow-delay="0.1s">
+					<div class="text-left">
+					<p>&copy;Copyright 2017 - Scribe Technologies Inc, All rights reserved.</p>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+{% include 'layouts/tracker.html' %}
+</body>
+
+</html>

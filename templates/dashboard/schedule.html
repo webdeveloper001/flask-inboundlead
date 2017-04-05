@@ -1,0 +1,54 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Schedule{% endblock %}
+{% block content %}
+<link href="static/dashboardAssets/css/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+<div class="container">
+    <div class="row"></div>
+        <form method="post" class="form-horizontal">
+            <fieldset>
+                <h3 style="text-align:center"> Let your assistant know what hours, call duration and calendar you would prefer</h3>
+                <br>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <br>
+                <label>Start of working day:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="input-group clockpicker m-b-15" data-donetext="Done">
+                     <input type="text" name="dayStartTime" class="form-control" value="{{ calendarValues['dayStart'] }}">
+                    <span class="input-group-addon"> <span class="glyphicon glyphicon-time"></span> </span>
+                </div>
+                <label>End of working day:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="input-group clockpicker m-b-15" data-donetext="Done">
+                     <input type="text" name="dayEndTime" class="form-control" value="{{ calendarValues['dayEnd'] }}">
+                    <span class="input-group-addon"> <span class="glyphicon glyphicon-time"></span> </span>
+                </div>
+                <br>
+                <div style="width:60%; margin:auto">
+                    <label>Appointment Call Duration (mins):</label>&nbsp;&nbsp;&nbsp;
+                    <input type="number" name="callDuration" value="{{ calendarValues['callDuration'] }}" style="width:55%;">
+                </div>
+                <br>
+                <p style="text-align:center">
+                    Choose calendars to connect with your assistant
+                    <br>
+                    <br>
+                    <ul class="list-group"  style="width:60%; margin:auto">
+                {% for id,calendar in calendarList.items() %}
+                        <li class="list-group-item">{{ calendar }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="material-switch pull-right">
+                                <input id="{{ calendar }}" name="calendarIds" value="{{ id }}" type="checkbox"/>
+                                <label for="{{ calendar }}" class="label-success"></label>
+                            </div>
+                {% endfor %}
+                    </ul>
+                </p>
+                <br>
+                <br>
+                <input type="submit" value="Connect Calendars" class="btn btn-default btn-lg btn-block" />
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script src="static/dashboardAssets/js/bootstrap-clockpicker.min.js"></script>
+<script type="text/javascript">
+    $('.clockpicker').clockpicker();
+</script>
+{% endblock %}

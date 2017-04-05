@@ -1,0 +1,79 @@
+{% extends 'layouts/index.html' %}
+{% block content %}
+
+        <!-- ========== PAGE TITLE ========== -->
+        <header class="header page-title">
+            <div class="container">
+                <!-- For centering the content vertically -->
+                <div class="outer">
+                    <div class="inner text-center">
+<!-- end breadcrumb -->
+
+                      <h1 class="">Integrations</h1>
+                        <h5 class="">Scribe integrates into your existing workflow and CRM, allowing you to focus on more important tasks.</h5>
+                        <a href="#" onclick="scribe.openCalendar()" class="btn show-popup se-btn-black btn-rounded mt20">Schedule A Demo</a>
+
+
+                  </div> <!-- end inner -->
+                </div> <!-- end outer -->
+            </div> <!-- end container -->
+        </header>
+
+        <!-- ========== FEATURE INTRO ========== -->
+    <section class="se-section feature-intro single-feature">
+            <div class="col-md-4 zero-padding col-md-push-7 side-img">
+                <img src="static/indexAssets/images/salesforce.png" style="width:300px;" alt="" class="img-responsive">
+            </div> <!-- end side-img -->
+
+            <div class="container feature-desc">
+                <div class="row">
+                  <div class="col-md-7 feature-info">
+                      <h3>Salesforce</h3>
+                      <p>Bi-Directional Sync: Automatically sync fields, status, and more on Leads, Contacts, and Accounts. Create records between Salesforce and Scribe, either bi-directional or one-way.</p>
+                      <p>Activity Sync: Log all activity done by Scribe on Salesforce.</p>
+                      <p>Salesforce Apps: Work in conjunction with Outreach and any other tools you use today. </p>
+                      <p>&nbsp;&nbsp;</p>
+</div>
+
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+    <section class="se-section feature-intro single-feature">
+      <div class="col-md-4 zero-padding col-md-push-7 side-img"> <img src="static/indexAssets/images/google_api.png" style="width:300px;" alt="" class="img-responsive"> </div>
+      <!-- end side-img -->
+      <div class="container feature-desc">
+        <div class="row">
+          <div class="col-md-7 feature-info">
+            <h3>Google </h3>
+            <p>Scribe integrates with your Google calendar to identify which time slots are available to book a demo or call with your qualified lead.</p>
+            <p>Once a demo is booked, your lead and you both get a calendar invite and personal reminders before the call.</p>
+            <p>Scribe also integrates with Google Drive to share all lead information if you are too lazy to provide us with a webhook</p>
+            <p>&nbsp;&nbsp;</p>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+    <section class="se-section feature-intro single-feature">
+      <div class="col-md-4 zero-padding col-md-push-7 side-img"> <img src="static/indexAssets/images/webhook.png" style="width:300px;" alt="" class="img-responsive"> </div>
+      <!-- end side-img -->
+      <div class="container feature-desc">
+        <div class="row">
+          <div class="col-md-7 feature-info">
+            <h3>Webhook </h3>
+            <p>Scribe also sends all the relevant lead information and status of the lead to a webhook of your choice.</p>
+            <p>Scribe maintains records and syncs with your favorite choice of CRMs as well as supports free Google Spreadsheet data integration</p>
+            <p>In addition to the above, if you want to sync your lead information with your api endpoint, just provide us with corresponding webhook url and you are all set</p>
+            <p>&nbsp;&nbsp;</p>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+        <!-- ========== FEATURE DETAILS ========== -->
+        <!-- ========== FEATURE DETAILS ========== -->
+        <!-- ========== FAQ SECTION ========== -->
+{% endblock %}

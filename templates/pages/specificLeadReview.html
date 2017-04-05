@@ -1,0 +1,27 @@
+{% extends 'layouts/agentMain.html' %}
+{% block title %}Review Email{% endblock %}
+{% block content %}
+<h3>Conversation</h3>
+<span style="white-space: pre-wrap;">{{ lead.thread.conversationText }}</span>
+<h3> Customer submitted templates </h3>
+{{ templates }}
+<h3>Customer working hours</h3>
+{{ dayStart }} <> {{ dayEnd }}
+<h3>Send Reply or Schedule a call. </h3>
+FreeBusy: {{ freeBusy }}
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    update calltime: <input type="string" name="callTime" value="{{ callTime }}"><br>
+    <input type="submit" value="Check FreeBusy" name="submit"><br>
+    (returns list of associated calendars with busy slots for the week from entered time)<br>
+    update lead first name: <input type="string" name="firstName" value="{{ lead.firstName }}"><br>
+    update lead phone: <input type="string" name="phone" value="{{ lead.phone }}"><br>
+    <input type="submit" value="Schedule Call" name="submit"><br>
+    <br>
+    <h4>Don't add signature in the reply below.</h4>
+    To:<input type="text" name="to" style="width:80%" value="{{ lead.email }}" /><br>
+    cc:<input type="text" name="cc" style="width:80%" value="{{ lead.thread.latestParticipants }}" /><br>
+    <textarea type="text" name="replyEmail" value="replyEmail:" style="width:80%; height:150px; margin:auto;"></textarea><br>
+    <input type="submit" value="Send Reply" name="submit">
+</form>
+{% endblock %}

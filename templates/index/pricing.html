@@ -1,0 +1,141 @@
+{% extends 'layouts/index.html' %}
+{% block content %}
+
+        <!-- ========== PAGE TITLE ========== -->
+        <header class="header page-title"> <!--style="box-shadow:inset 0px 0px 0 2000px rgba(0,0,0,0.25)"-->
+            <div class="container">
+                <!-- For centering the content vertically -->
+                <div class="outer">
+                    <div class="inner text-center">
+
+                        <h1 class="">Pricing</h1>
+                        <h5>A Fraction of What You Spend on Acquiring Leads</h5>
+                        <a href="#" onclick="scribe.openCalendar()" class="btn show-popup se-btn-black btn-rounded mt20">Schedule A Demo</a>
+
+                    </div> <!-- end inner -->
+                </div> <!-- end outer -->
+            </div> <!-- end container -->
+        </header>
+
+        <!-- ========== PRICING ========== -->
+        <section class="se-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="se-plan">
+                            <div class="plan-header"><span>Startup Plan</span>
+                              <h2>Free</h2>
+                              <p>Upto 20 Qualified Demos Booked /mo</p>
+                            </div> <!-- end plan-header -->
+
+                            <div class="plan-features">
+                                <ul>
+                                  <li>Basic qualification <br>
+</li>
+                                  <li>Scheduling<br>
+</li>
+                                  <li>1 user<br>
+</li>
+                                  <li>-</li>
+                                  <li>-</li>
+                                  <li>-</li>
+                                  <li>-
+                                      <!--<form action="/stripePayment" method="POST">
+                                        <script
+                                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                                          data-amount="2000"
+                                          data-name="scribe"
+                                          data-description="Startup Plan"
+                                          data-image="{{ config.BASE_URL }}/static/img/scribeLogo/icon-small.png"
+                                          data-locale="auto"
+                                          data-zip-code="true">
+                                        </script>
+                                        </form>-->
+                                  </li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="se-plan plan-popular">
+                            <div class="plan-header"><span >Growth Plan</span>
+                              <h2>$10<small>/qualified demo booked</small></h2>
+                              <p>$499 monthly minimum *</p>
+                            </div> <!-- end plan-header -->
+
+                            <div class="plan-features">
+                                <ul>
+                                  <li>Custom qualification with External Data<br>
+</li>
+                                  <li>Team Scheduling</li>
+                                  <li>Upto 5 Users</li>
+                                  <li>Salesforce Integration</li>
+                                  <li>Managed email follow-ups</li>
+                                  <li>One Time Onboarding Phone Call</li>
+                                  <li>
+                                      -<!--<form action="/your-server-side-code" method="POST">
+                                        <script
+                                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                                          data-amount="2000"
+                                          data-name="Scribe"
+                                          data-description="Growth Plan"
+                                          data-image="{{ config.BASE_URL }}/static/img/scribeLogo/icon-small.png"
+                                          data-locale="auto"
+                                          data-zip-code="true">
+                                        </script>
+                                      </form>-->
+                                  </li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="se-plan">
+                            <div class="plan-header"><span >Enterprise</span>
+                              <h2>Call Us</h2>
+                              <p>Premium Plan</p>
+                            </div> <!-- end plan-header -->
+
+                            <div class="plan-features">
+                                <ul>
+                                  <li>Custom qualification along with Lead Scoring<br>
+</li>
+                                  <li>Round Robin Scheduling</li>
+                                  <li>Unlimited Users</li>
+                                  <li>Custom Integrations</li>
+                                  <li>Managed email follow-ups</li>
+                                  <li>Complete Onboarding</li>
+                                  <li>Dedicated Support</li>
+                                  <li></li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+
+        <!-- ========== FAQ SECTION ========== -->
+        <section class="se-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 se-faq">
+                      <h6 class="underline">* What is the monthly minimum price?</h6>
+                      <p>The monthly minimum price for the Growth plan is $499 per month for an annual contract. The price for a month to month contract is 25% higher at $624 /mo.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                      <h6 class="underline">How do you calculate qualified demos booked?</h6>
+                      <p>We calculate a qualification score for each lead which you setup during onboarding and can track on the dashboard. We only charge you for booking demos with leads that meet this threshold.</p>
+                    </div> <!-- end se-faq -->
+                    <!-- end se-faq -->                  <!-- end se-faq -->
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+{% endblock %}

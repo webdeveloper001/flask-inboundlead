@@ -1,0 +1,22 @@
+{% extends 'layouts/agentMain.html' %}
+{% block title %}Review Email{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <th> lead.email &nbsp;&nbsp; </th>
+        <th> lead.salesRep &nbsp;&nbsp; </th>
+       <th> lead.reply &nbsp;&nbsp; </th>
+       <th>suggestReply&nbsp;&nbsp;</th>
+        <th>cancel&nbsp;&nbsp;</th>
+   </tr>
+{% for lead in leadReviews %}
+   <tr>
+        <th> {{ lead.email }}&nbsp;&nbsp; </th>
+        <td> {{ lead.salesRep }}&nbsp;&nbsp; </td>
+       <td> {{ lead.reviewReason }}&nbsp;&nbsp; </td>
+       <td> <a href="/agent/review?lead={{ lead.id }}">suggestReply</a> </td>
+       <td> <a href="/agent/review?lead={{ lead.id }}&cancel=1">cancel</a> </td>
+   </tr>
+{% endfor %}
+</table>
+{% endblock %}

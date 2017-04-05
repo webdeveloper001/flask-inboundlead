@@ -1,0 +1,30 @@
+<html>
+<body style="margin:0px">
+<script type="text/javascript"
+        src="{{ url_for('static',filename='web2lead/js/iframeResizer.contentWindow.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="/static/modal/css/styles.css">
+
+<div class="wpdev-modal" style="display:block; opacity:1" id="question-form">
+    <div class="modal-wrap">
+        <a href="#" class="modal-close wpdev-icon wpdev-icon-remove"></a>
+        <div class="modal-header"> <span>Schedule a Demo</span> </div>
+        <form method="POST"  id="form1">
+            <div class="wpdev-form-group"><input type="text" class="form-control" name="name" placeholder="Name" required="required"/></div>
+            <div class="wpdev-form-group">
+                <!--<div class="wi_100 input-group">-->
+                <input type="email" class="form-control" name="email" placeholder="Email" required="required"/>
+            </div>
+            <div class="wpdev-form-group">
+                <input type="text" class="form-control" name="company" placeholder="Company" required="required"/>
+            </div>
+            <div id="extra-fields"></div>
+            <div id="button-area">
+                <button type="submit" class="wi_100 mart25 wpdev-btn wpdev-btn-red check-email" disabled="disabled">Submit</button>
+            </div>
+        </form><br><br><br>
+    </div>
+</div>
+<div id="wp-fade" style="display: none;"></div>
+</body>
+</html>
+

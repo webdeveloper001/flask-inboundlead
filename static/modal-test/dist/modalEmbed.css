@@ -1,0 +1,520 @@
+@font-face {
+  font-family: 'Futurabook';
+  src: url(fonts/ec0de3284274af52b07a142da4a2984b.woff2) format('woff2'), url(fonts/13c996ac93929f8549e224444c05600d.woff) format('woff');
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Futurabook' !important;
+}
+.wrap .show-popup {
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  overflow: hidden;
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background: #293e54;
+  cursor: pointer;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.wrap .show-popup .email-launcher-open-icon,
+.wrap .show-popup .email-launcher-close-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  transition: transform 0.16s linear, opacity 0.08s linear, -webkit-transform 0.16s linear;
+}
+.wrap .show-popup .email-launcher-open-icon {
+  background-image: url("/static/img/scribeLogo/icon_light.png");
+  background-size: 36px auto;
+  opacity: 1;
+  -webkit-transform: rotate(0deg) scale(1);
+          transform: rotate(0deg) scale(1);
+}
+.wrap .show-popup .email-launcher-close-icon {
+  opacity: 0;
+  background-image: url("/static/img/scribeLogo/close.png");
+  background-size: 14px 14px;
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+}
+.wrap .show-popup:not(.show-email) .email-launcher-open-icon,
+.wrap .show-email-active .email-launcher-open-icon {
+  opacity: 0;
+  -webkit-transform: rotate(30deg) scale(0);
+          transform: rotate(30deg) scale(0);
+}
+.wrap .show-email-active .email-launcher-close-icon {
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.wrap .calendar-launcher-open-icon {
+  background-image: url("/static/img/scribeLogo/close.png");
+  background-size: 36px auto;
+}
+.wrap .email-form {
+  width: 300px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  background: #fff;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  right: 20px;
+  position: absolute;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+.wrap .email-form .email-form-header {
+  padding: 15px 10px;
+  border-radius: 8px 8px 0 0;
+  background: #293e54;
+  color: #fff;
+}
+.wrap .email-form fieldset {
+  display: block;
+  margin: 0;
+  padding: 10px;
+  border: none;
+  background: none;
+  white-space: nowrap;
+}
+.wrap .email-form input {
+  width: 210px;
+  height: 40px;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border: 1px solid #c0cece;
+  border-radius: 4px;
+  background: #fff;
+  vertical-align: middle;
+  line-height: 1.42857143;
+  font-size: 14px;
+  color: #555;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.wrap .email-form input:focus {
+  box-shadow: none;
+  outline: 0;
+  border-color: #29aaaa;
+  background-color: #f0f7f7;
+}
+.wrap .email-form button {
+  width: 60px;
+  height: 40px;
+  display: block;
+  float: right;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 8px;
+  outline: none!important;
+  border: none;
+  border-radius: 4px;
+  background: #293e54;
+  vertical-align: middle;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 1.42857143;
+  font-weight: 400;
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/*
+
+	DATE AND TIME PICKER
+
+*/
+.modal-wrap {
+  min-width: 350px;
+  box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  border-radius: 8px;
+}
+.modal-wrap .close:before {
+  background-color: #fff!important;
+}
+.modal-wrap .show-modal-active .email-launcher-close-icon {
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.modal-wrap .modal-header {
+  height: 60px;
+  background-color: #293e54;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background-image: url("/static/img/scribeLogo/icon_light.png"), -webkit-linear-gradient(top, #516f90, #293e54);
+  background-image: url("/static/img/scribeLogo/icon_light.png"), linear-gradient(to bottom, #516f90, #293e54);
+  background-repeat: no-repeat, repeat;
+  background-size: 45px auto, 100% 100%;
+  background-position: 25px 50%, 0 0;
+  text-align: center;
+  line-height: 60px;
+}
+.modal-wrap .modal-header .header-text {
+  color: #fff;
+  font-size: 22px;
+}
+.modal-wrap .modal-content {
+  padding: 20px!important;
+  text-align: center;
+  font-size: 16px;
+  background-color: #f7f7f7!important;
+  overflow: auto;
+  max-height: 500px;
+}
+.modal-wrap .modal-content .form-group {
+  margin-bottom: 15px;
+}
+.modal-wrap .modal-content .form-group input {
+  width: 90%;
+  margin: auto;
+  height: 20px;
+  display: block;
+  padding: 6px 16px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  outline: none!important;
+  border: 1px solid #c0cece;
+  border-radius: 4px;
+  background: #fff;
+  vertical-align: middle;
+  line-height: 1.42857143;
+  font-family: 'Futurabook';
+  font-size: 14px;
+  color: #555;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.modal-wrap .modal-content .submit_btn {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 36px;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #293e54;
+  background: -webkit-linear-gradient(top, #516f90, #293e54);
+  background: linear-gradient(to bottom, #516f90, #293e54);
+  font-family: 'Futurabook' !important;
+}
+.cal-inner-wrap {
+  max-width: 850px;
+  background-color: #fff!important;
+}
+.cal-wrap .modal-header,
+.cal-wrap .modal-content {
+  display: none;
+}
+.cal-wrap .close {
+  position: absolute;
+  right: 20px!important;
+  top: 20px!important;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  z-index: 999;
+}
+.cal-wrap .close:before {
+  content: '';
+  background-color: black;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  -webkit-mask: url(fonts/ea5e4c1e20c3176cf73f373742288041.svg) no-repeat 50% 50%;
+          mask: url(fonts/ea5e4c1e20c3176cf73f373742288041.svg) no-repeat 50% 50%;
+}
+.datepicker-container:focus,
+.timepicker-container:focus,
+.picker:focus,
+.picker__holder:focus {
+  outline: none;
+}
+.datepicker-container {
+  width: 50%;
+  padding: 0px 30px;
+  text-align: center;
+  background-image: -webkit-linear-gradient(315deg, #516f90 35%, #293e54 100%);
+  background-image: linear-gradient(-225deg, #516f90 35%, #293e54 100%);
+  color: white;
+  box-sizing: border-box;
+  padding-bottom: 48px;
+}
+.datepicker-container .title {
+  font-size: 24px;
+  padding-top: 22px;
+  margin-bottom: 18px;
+  min-height: 56px;
+}
+.datepicker-container .picker__header {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  position: relative;
+}
+.datepicker-container .picker__header .picker__nav--prev,
+.datepicker-container .picker__header .picker__nav--next {
+  position: absolute;
+  font-size: 16px;
+  top: 50%;
+  margin-top: -8px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.datepicker-container .picker__header .picker__nav--prev:before,
+.datepicker-container .picker__header .picker__nav--next:before {
+  content: '';
+  background-color: white;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+}
+.datepicker-container .picker__nav--prev {
+  left: 0;
+  padding-left: 8px;
+}
+.datepicker-container .picker__nav--prev:before {
+  -webkit-mask: url(fonts/290174b6259ea557de7fde682836d3c6.svg) no-repeat 50% 50%;
+          mask: url(fonts/290174b6259ea557de7fde682836d3c6.svg) no-repeat 50% 50%;
+}
+.datepicker-container .picker__nav--next {
+  right: 0;
+  padding-right: 24px;
+}
+.datepicker-container .picker__nav--next:before {
+  -webkit-mask: url(fonts/ff2b96719fb93f9698bfe4070dea4e27.svg) no-repeat 50% 50%;
+          mask: url(fonts/ff2b96719fb93f9698bfe4070dea4e27.svg) no-repeat 50% 50%;
+}
+.datepicker-container .picker__header .picker__nav--disabled {
+  color: #CCCCCC;
+  cursor: auto;
+  opacity: 0.3;
+}
+.datepicker-container .picker__weekday {
+  text-transform: uppercase;
+  font-weight: normal;
+  padding: 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.datepicker-container .picker__day {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-left: 4px;
+}
+.datepicker-container .picker__day:hover,
+.datepicker-container .picker__day--selected,
+.datepicker-container .picker__day--highlighted {
+  color: #29AAAA;
+  background-color: white;
+}
+.datepicker-container .picker__day.picker__day--disabled {
+  opacity: 0.3;
+  cursor: auto;
+  background: none;
+  color: white;
+}
+.datepicker-container .picker__day.picker__day--disabled.picker__day--highlighted {
+  background-color: rgba(41, 170, 170, 0.1);
+}
+.datepicker-container th {
+  text-align: center;
+}
+.datepicker-container #datepicker_table {
+  width: 100%;
+  table-layout: fixed;
+}
+.datepicker-container .picker__year {
+  display: none;
+}
+.datepicker-container .picker__month {
+  text-align: center;
+}
+.datepicker-container input {
+  display: none;
+}
+.timepicker-container {
+  text-align: center;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+}
+.timepicker-container .title {
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+}
+.timepicker-container .picker__list-item {
+  border: 1px solid #cbd6e2;
+  padding: 14px 0px;
+  margin-bottom: 5px;
+  color: #29AAAA;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-transition: border 0.3s, background 0.3s;
+  transition: border 0.3s, background 0.3s;
+  font-size: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.timepicker-container .picker__list-item:hover,
+.timepicker-container .picker__list-item:active,
+.timepicker-container .picker__list-item--selected,
+.timepicker-container .picker__list-item--highlighted {
+  border-color: #00a4bd;
+  background-color: rgba(0, 164, 189, 0.047);
+}
+.timepicker-container .picker__list-item.picker__list-item--disabled {
+  color: #CCCCCC;
+  cursor: auto;
+  background: none;
+  border: 1px solid #cbd6e2;
+}
+.timepicker-container .picker__list {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+.timepicker-container .picker {
+  overflow-y: scroll;
+  height: 56%;
+}
+.timepicker-container input {
+  display: none;
+}
+.timepicker-container .button-container {
+  padding: 0 30px;
+}
+.timepicker-container .button-container .phone {
+  width: 100%;
+  display: block;
+  height: 44px;
+  font-size: 14px;
+  padding-left: 10px;
+  margin-top: 52px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #CBD6E4;
+  box-sizing: border-box;
+}
+.timepicker-container .button-container .btn-confirm {
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  background-color: #293e54;
+  padding: 0px 30px;
+  border-radius: 3px;
+  height: 50px;
+  margin-top: 12px;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+}
+.timepicker-container .button-container .btn-confirm:hover {
+  background-color: #516f90;
+}
+.timepicker-container .button-container .btn-confirm.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.timepicker-container .button-container .btn-confirm.disabled:hover {
+  background-color: #293e54;
+}
+@media only screen and (max-device-width: 600px) {
+  input {
+    font-size: 16px !important;
+  }
+  .close {
+    display: none;
+  }
+  .datepicker-container,
+  .timepicker-container {
+    width: 100%;
+    padding: 0 15px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  .datepicker-container .title {
+    min-height: 0px;
+  }
+  .datepicker-container .picker__nav--next {
+    padding-right: 12px;
+  }
+  .datepicker-container .picker__day {
+    margin-left: 0px;
+  }
+  .wrap .show-popup,
+  .wrap .email-form {
+    right: 10px;
+  }
+  .timepicker-container {
+    top: inherit;
+  }
+  .timepicker-container .button-container .phone {
+    margin-top: 10px;
+  }
+  .modal-wrap {
+    min-width: 0px;
+    width: calc(90%);
+  }
+  .cal-wrap {
+    max-height: 100%;
+    top: 20px;
+    overflow: scroll;
+  }
+}

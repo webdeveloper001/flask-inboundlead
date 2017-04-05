@@ -1,0 +1,392 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Smart Form{% endblock %}
+{% block content %}
+<style>
+	p {
+		padding-top:40px;
+		font-weight:bold;
+	}
+	b {
+
+	}
+	label {
+		font-weight:normal;
+	}
+</style>
+<div class="container">
+    <div class="row"></div>
+    <form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+		<div class="row">
+		<div class="col-md-12">
+			<p>If you only have a prospect's Email ID, which of the following values is a must for you call them?* <a onclick="return setHidden('question1')" data-toggle="modal" data-target="#myModal">Add</a> </p>
+			<div class="col-md-2 radio-m-top">
+				<b>Work Email</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Personal Email</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div id="question1"></div>
+		</div>
+	</div>
+
+	<div class="row mtop_class">
+		<div class="col-md-12">
+		<p>If you only have a prospect's Location, which of the following values is a must for you call them?* <a onclick="return setHidden('question2')" data-toggle="modal" data-target="#myModal">Add</a></p>
+			<div class="col-md-3 radio-m-top">
+				<b>San Francisco Bay Area</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Europe</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Other International</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>USA</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Other</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+
+			<div id="question2"></div>
+		</div>
+	</div>
+
+
+	<div class="row mtop_class">
+		<div class="col-md-12">
+		<p>If you only have a prospect's Title, which of the following values is a must for you call them?* <a onclick="return setHidden('question3')" data-toggle="modal" data-target="#myModal">Add</a></p>
+			<div class="col-md-2 radio-m-top">
+				<b>Founder</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Partner</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Director</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Entry</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Assistant</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Student</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Individual</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Owner</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>VP</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Manager</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Intern</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+
+			<div id="question3"></div>
+
+		</div>
+	</div>
+
+	<div class="row mtop_class">
+		<div class="col-md-12">
+		<p>If you only have a prospect's Department, which of the following values is a must for you call them?* <a onclick="return setHidden('question4')" data-toggle="modal" data-target="#myModal">Add</a></p>
+			<div class="col-md-2 radio-m-top">
+				<b>Product Management</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Design</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Marketing</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Founder/CEO</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>IT</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Engineering</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Sales</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Customer Support</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Finance</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Legal</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>Other</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+
+			<div id="question4"></div>
+
+		</div>
+	</div>
+
+
+	<div class="row mtop_class">
+		<div class="col-md-12">
+		<p>If you only have a prospect's Company Size, which of the following values is a must for you call them?* <a onclick="return setHidden('question5')" data-toggle="modal" data-target="#myModal">Add</a></p>
+			<div class="col-md-2 radio-m-top">
+				<b>1-10</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>11-50</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>51-200</b>
+				<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="work_email"> Not Fit</label>
+				<br><label><input type="radio" name="work_email"> Good Fit</label>
+				<br><label><input type="radio" name="work_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>201-500</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>501-1000</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>1001-5000</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>5001-10000</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+			<div class="col-md-2 radio-m-top">
+				<b>10000+</b>
+				<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+				<br><label><input type="radio" name="personal_email"> Not Fit</label>
+				<br><label><input type="radio" name="personal_email"> Good Fit</label>
+				<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+			</div>
+
+			<div id="question5"></div>
+		</div>
+	</div>
+
+	<br>
+	<p>If you only have a prospect's Company Revenue, which of the following values is a must for you call them?*</p>
+		<div class="col-md-2 radio-m-top">
+			<b> 0-$500k</b>
+			<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="work_email"> Not Fit</label>
+			<br><label><input type="radio" name="work_email"> Good Fit</label>
+			<br><label><input type="radio" name="work_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$500K-1M</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$1M-2.5M</b>
+			<br><label><input type="radio" name="work_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="work_email"> Not Fit</label>
+			<br><label><input type="radio" name="work_email"> Good Fit</label>
+			<br><label><input type="radio" name="work_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$2.5M-5M</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$5M-10M</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$10M-20M</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$20M-50M</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$50M-100M</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+		<div class="col-md-2 radio-m-top">
+			<b>$100M+</b>
+			<br><label><input type="radio" name="personal_email"> Perfect Fit</label>
+			<br><label><input type="radio" name="personal_email"> Not Fit</label>
+			<br><label><input type="radio" name="personal_email"> Good Fit</label>
+			<br><label><input type="radio" name="personal_email"> Bad Fit</label>
+		</div>
+
+<br>
+    <input type="submit" value="submit" class="btn btn-default btn-lg btn-block" />
+		</form>
+</div>
+{% endblock %}

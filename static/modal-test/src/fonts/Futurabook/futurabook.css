@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ufonts_com_futurabook';
+    src: url('fonts/ufonts_com_futurabook.eot');
+    src: url('fonts/ufonts_com_futurabook.eot') format('embedded-opentype'),
+         url('fonts/ufonts_com_futurabook.woff2') format('woff2'),
+         url('fonts/ufonts_com_futurabook.woff') format('woff'),
+         url('fonts/ufonts_com_futurabook.ttf') format('truetype'),
+         url('fonts/ufonts_com_futurabook.svg#ufonts_com_futurabook') format('svg');
+}

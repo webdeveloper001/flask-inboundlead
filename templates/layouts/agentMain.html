@@ -1,0 +1,35 @@
+{% include 'layouts/header.html' %}
+<body>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+<nav class="navbar navbar-default" style="border-color:#FFFFFF">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url_for('login') }}" style="padding-left:60px;"><img src="{{ url_for('static', filename='img/representativ2.png') }}" id="logo"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('.agentHome') }}" style="color:#000000;">Agent Home</a></li>
+        <li><a href="{{ url_for('.addLeads') }}" style="color:#000000;">Create Leads</a></li>
+        <li><a href="{{ url_for('.agentReview') }}" style="color:#000000;">Review Leads</a></li>
+        <li class="active"><a href="{{ url_for('.agentLogout') }}" >Logout <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main id="content" role="main">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-dismissible alert-warning fade in">
+          <a class="close" data-dismiss="alert">&times;</a>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+	{% block content %}{% endblock %}
+</main>
+{% include 'layouts/mainFooter.html' %}
+</body>
+
+</html>

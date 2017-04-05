@@ -1,0 +1,10 @@
+gcredentials/*
+env/
+*.pyc
+*.db
+*.csv
+*.pdf
+.idea/workspace.xml
+node_modules
+.DS_Store
+.idea/dictionaries/

@@ -1,0 +1,39 @@
+main {
+    width:80%;
+    margin:auto;
+    padding-top:20px;
+}
+
+textarea {
+    min-height:80px;
+}
+
+#landing {
+    width:60%;
+    margin:auto;
+    text-align:center;
+}
+
+label {
+    font-weight:normal;
+}
+
+.backgroundStyle {
+    height:100%;
+    background-color:#eaeaea!important;
+    background-position:center;
+    overflow:hidden;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.loginButton {
+    color:#FFFFFF!important;
+    text-align:center;
+    width:150px;
+}
+
+#logo{
+    height:30px;
+    margin-top:15px;
+}

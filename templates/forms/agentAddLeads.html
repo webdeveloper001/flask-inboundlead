@@ -1,0 +1,22 @@
+{% extends 'layouts/agentMain.html' %}
+{% block title %}Add Leads{% endblock %}
+{% block content %}
+<p><strong>Note:</strong> The salesRepEmail should match an existing salesRep account in our database. Once you upload the csv,
+    the introductory email corresponding to the salesRep account will automatically be sent to the leads</p>
+<br>
+<br>
+<form method='post' enctype='multipart/form-data'>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <input type="text" name="subject" value="subject" style="width:100%;"/>
+    <p> Change the content below only if you want to override the introductory email set by the salesRep. If you want to do that, write the new email below.
+    add '%%%'+field'+'%%%' to personalize text per lead. Right now only name and company are supported. For ex: '%%%name%%%'
+        will be replaced with lead name and similarly for lead company. Don't add any other space in between.</p>
+    <h4>Don't add signature in the msg below.</h4>
+    <textarea name="mailText" value="mailText" style="width:100%; height:150px;"></textarea>
+    <p> Upload CSV with the following columns salesRepEmail, leadEmail, leadName, leadCompany separated by comma. Dont add the header as such.</p>
+    <p><input type='file' name='file'>
+
+        <h4>Check if all values are correct! Once you submit emails will be sent to leads</h4>
+        <input type='submit' value='Submit'></p>
+</form>
+{% endblock %}

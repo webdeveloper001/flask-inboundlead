@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Scribe Admin Template">
+<meta name="author" content="Coderthemes">
+<link rel="shortcut icon" href="static/img/scribeLogo/favicon.png">
+
+<title>Scribe - Inbound Sales, Automated!</title>
+
+<link href="static/dashboardAssets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="static/dashboardAssets/css/core.css" rel="stylesheet" type="text/css" />
+<link href="static/dashboardAssets/css/components.css" rel="stylesheet" type="text/css" />
+<link href="static/dashboardAssets/css/icons.css" rel="stylesheet" type="text/css" />
+<link href="static/dashboardAssets/css/pages.css" rel="stylesheet" type="text/css" />
+<link href="static/dashboardAssets/css/responsive.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="static/css/selectize.default.css" rel="stylesheet" type="text/css" />
+
+<!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="static/dashboardAssets/js/modernizr.min.js"></script>
+<script src="static/dashboardAssets/js/jquery.min.js"></script>
+<script src="static/dashboardAssets/js/bootstrap.min.js"></script>
+<script type="text/javascript"  src="static/js/selectize.min.js"></script>
+</head>
+
+    <body class="fixed-left">
+      <div id="wrapper">
+        <div class="topbar">
+
+          <!-- LOGO -->
+          <div class="topbar-left">
+            <div class="text-center">
+              <!--<a href="{{ url_for('dashboard.home') }}" class="logo"><i class="icon-magnet icon-c-logo"></i><img src="static/img/scribeLogo/smallSize_dark.png" style="width:50%;"></a>-->
+              <!-- Image Logo here -->
+              <a href="{{ url_for('dashboard.home') }}" class="logo">
+              <i class="icon-c-logo"> <img src="static/img/scribeLogo/icon-small.png" height="42"/> </i>
+              <span><img src="static/img/scribeLogo/smallSize_dark.png" height="40"/></span>
+              </a>
+            </div>
+          </div>
+          <!-- Button mobile view to collapse sidebar menu -->
+          <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+              <div class="">
+                <div class="pull-left">
+                  <button class="button-menu-mobile open-left waves-effect waves-light">
+                    <i class="md md-menu"></i>
+                  </button>
+                  <span class="clearfix"></span>
+                </div>
+                <ul class="nav navbar-nav navbar-right pull-right">
+                  
+    
+    <li class="dropdown top-menu-item-xs">
+      <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="static/dashboardAssets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
+      <ul class="dropdown-menu">
+        <!--<li><a href="{{ url_for('dashboard.setup') }}"><i class="ti-user m-r-10 text-custom"></i> setup</a></li>-->
+        <li><a href="{{ url_for('dashboard.deactivate') }}"><i class="ti-settings m-r-10 text-custom"></i> Deactivate</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ url_for('dashboard.logout') }}"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="left side-menu">
+<div class="sidebar-inner slimscrollleft">
+  <div id="sidebar-menu">
+    <ul>
+     <li class="has_sub">
+      <a href="{{ url_for(('dashboard.qualify')) }}" class="waves-effect"><i class="md md-stars"></i> <span> Qualify </span> </a>
+    </li>
+    <li class="has_sub">
+      <a href="{{ url_for(('dashboard.schedule')) }}" class="waves-effect"><i class="md md-event"></i> <span> Schedule </span> </a>
+    </li>
+    <li class="has_sub">
+      <a href="{{ url_for(('dashboard.integrate')) }}" class="waves-effect"><i class="md md-input"></i> <span> Sync Lead Information </span> </a>
+    </li>
+    <li class="has_sub">
+      <a href="{{ url_for(('dashboard.getScribe')) }}" class="waves-effect"><i class="md md-file-download"></i> <span> Scribe Form </span> </a>
+    </li>
+    <li class="has_sub">
+      <a href="{{ url_for(('dashboard.connectMailbox')) }}" class="waves-effect"><i class="md md-lock-outline"></i> <span> Connect Mail </span> </a>
+   </li>
+    <!--<li class="has_sub">
+      <a href="javascript:void(0);" class="waves-effect"><i class="md md-query-builder"></i> <span> Persist </span> <span class="menu-arrow"></span></a>
+      <ul class="list-unstyled">
+        <li><a href="ui-buttons.html">Sales Assistant</a></li>
+        <li><a href="ui-loading-buttons.html">Templates</a></li>
+        <li><a href="ui-panels.html">Sequence</a></li>
+      </ul>
+    </li>-->
+  </ul>
+  <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<!-- Left Sidebar End -->
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+  <div class="content">
+    <main id="content" role="main">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-dismissible alert-warning fade in">
+              <a class="close" data-dismiss="alert">&times;</a>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+<!-- content -->
+
+<footer class="footer text-right">
+© Scribe Technologies Inc 2017. All rights reserved.
+</footer>
+
+</div>
+<!-- END wrapper -->
+
+<script>
+var resizefunc = [];
+</script>
+
+<!-- jQuery  -->
+<script src="static/dashboardAssets/js/detect.js"></script>
+<script src="static/dashboardAssets/js/fastclick.js"></script>
+<script src="static/dashboardAssets/js/jquery.slimscroll.js"></script>
+<script src="static/dashboardAssets/js/jquery.blockUI.js"></script>
+<script src="static/dashboardAssets/js/waves.js"></script>
+<script src="static/dashboardAssets/js/wow.min.js"></script>
+<script src="static/dashboardAssets/js/jquery.nicescroll.js"></script>
+<script src="static/dashboardAssets/js/jquery.scrollTo.min.js"></script>
+<script src="static/dashboardAssets/js/jquery.core.js"></script>
+<script src="static/dashboardAssets/js/jquery.app.js"></script>
+<script src="static/dashboardAssets/js/clipboard.min.js"></script>
+</body>
+</html>
+{% include 'layouts/tracker.html' %}

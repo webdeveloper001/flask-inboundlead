@@ -1,0 +1,43 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Scribe! Your friendly virtual AI Assistant{% endblock %}
+{% block content %}
+<form method="post" class="form-horizontal">
+    <fieldset>
+        <h3 style="text-align:center"> Tell us about your company so that we can respond to different customer requests </h3>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template1q(class_ = 'form-control',placeholder=form.template1q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template1a(class_ = 'form-control') }}</div>
+        </div>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template2q(class_ = 'form-control',placeholder=form.template2q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template2a(class_ = 'form-control') }}</div>
+        </div>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template3q(class_ = 'form-control',placeholder=form.template3q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template3a(class_ = 'form-control') }}</div>
+        </div>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template4q(class_ = 'form-control',placeholder=form.template4q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template4a(class_ = 'form-control') }}</div>
+        </div>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template5q(class_ = 'form-control',placeholder=form.template5q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template5a(class_ = 'form-control') }}</div>
+        </div>
+        <h3>Outbound Email for onboarding leads</h3>
+        <div class="form-group"><label class="col-lg-2 control-label">Onboarding Subject:</label>
+            <div class="col-lg-10">{{ form.onboardingSubject(class_ = 'form-control') }}</div>
+        </div>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template6q(class_ = 'form-control',placeholder=form.template6q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template6a(class_ = 'form-control') }}</div>
+        </div>
+        <div class="form-group"><label class="col-lg-2 control-label">
+            {{ form.template7q(class_ = 'form-control',placeholder=form.template7q.label.text) }}</label>
+            <div class="col-lg-10">{{ form.template7a(class_ = 'form-control') }}</div>
+        </div>
+        <input type="submit" value="Add Templates" class="btn btn-danger btn-lg btn-block" />
+    </fieldset>
+</form>
+{% endblock %}

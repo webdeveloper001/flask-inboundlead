@@ -1,0 +1,11 @@
+.alert {
+    position:fixed;
+    top:100px;
+    left:25%;
+    width:50%;
+    background-color:white;
+    border-color:transparent;
+    color:#4aa3df;
+    text-align:center;
+    border-radius:50px;
+}

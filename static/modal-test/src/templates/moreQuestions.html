@@ -1,0 +1,12 @@
+<form id="form1" class="questionForm">
+    <p>Just a couple more questions {{ leadName }}</p>
+    <% _forEach(questionFields, function(value) { %>
+        <div class="form-group" id="check1-scroll">
+            <input type="text" class="form-control" name="<%= value %>" placeholder="<%= value %>" onfocus="value=''" required="required" />
+        </div>
+    <% }); %>
+    <div id="extra-fields"></div>
+    <div id="button-area">
+        <button type="submit" class="wi_100 mart25 btn btn-danger submit_btn">Submit</button>
+    </div>
+</form>

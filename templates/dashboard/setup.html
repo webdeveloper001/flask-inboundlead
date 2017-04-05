@@ -1,0 +1,29 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Setup{% endblock %}
+{% block content %}
+<!-- Start content -->
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+  <h4 class="page-header">Setup Your Account</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Welcome to Scribe {{ host.firstName }}</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        This is your setup guide. It has everything you need to setup Scribe account. You can come back anytime here.
+      </p>
+      <button type="button" class="btn btn-default waves-effect waves-light pull-right" style="margin-top: 2%"><a style="color:#fff"href="setup-1.html">Got it!</a>
+        <span class="btn-label btn-label-right"><i class="fa fa-arrow-right"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

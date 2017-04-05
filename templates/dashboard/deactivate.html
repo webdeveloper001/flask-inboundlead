@@ -1,0 +1,18 @@
+{% extends 'layouts/dashboard.html' %}
+{% block title %}Deactivate{% endblock %}
+{% block content %}
+<div class="container">
+<h4 style="text-align:left">
+    Deactivating assistant will remove all communication history of your assistant and you will not be able to avail the services through gmail.
+    Are you sure you want to deactivate your assistant?</h4>   <br><br>
+<p>
+    <form method="post" class="form-horizontal">
+        <fieldset>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <a href="{{ url_for('dashboard.home') }}" style="vertical-align: middle; width:40%;display: inline-block; margin:0 5%; border:1px solid;" class="btn">No. I will continue my assistant</a>
+            <input type="submit" style="vertical-align: middle; width:40%;display: inline-block; margin-right:5%; background:none; border:1px solid;" value="Yes. Deactivate my assistant and log me out" class="btn" />
+        </fieldset>
+    </form>
+</p>
+</div>
+{% endblock %}
